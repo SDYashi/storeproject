@@ -7,7 +7,6 @@ import { StoreGenerateReportsv1Component } from './store-generate-reportsv1/stor
 
 const routes: Routes = [
   { path: '', redirectTo: '/store-generate-reports', pathMatch: 'full' },
-  // { path:'login', component:StoreLoginComponent},
   { path:'store-dashboard', component:StoreDashboardComponent}, 
   { path:'store-view-reports', component:StoreViewReportsv1Component},   
   { path:'store-generate-reports', component:StoreGenerateReportsv1Component},     
