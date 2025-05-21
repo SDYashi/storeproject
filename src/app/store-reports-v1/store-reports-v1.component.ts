@@ -2,15 +2,11 @@ import { Component } from '@angular/core';
 import { MystoreServicesService } from '../storeServices/mystore-services.service';
 
 @Component({
-  selector: 'app-store-generate-reportsv1',
-  templateUrl: './store-generate-reportsv1.component.html',
-  styleUrls: ['./store-generate-reportsv1.component.css']
+  selector: 'app-store-reports-v1',
+  templateUrl: './store-reports-v1.component.html',
+  styleUrls: ['./store-reports-v1.component.css']
 })
-export class StoreGenerateReportsv1Component {
-
-  Oninit() {
-    this.getsamplecodelist();
-  }
+export class StoreReportsV1Component {
 
 
   testReport = {
@@ -82,17 +78,17 @@ export class StoreGenerateReportsv1Component {
     remark_4: '',
     remark_5: ''
   };
-  step = 1;
+
   constructor(private storeServices: MystoreServicesService) { }
 
-  nextStep() {
-    if (this.step < 2) this.step++;
+  onSubmit(form: any) {
+    if (form.valid) {
+      console.log('Form Submitted:', this.testReport);
+      // Add your submission logic here
+    } else {
+      console.log('Form is invalid');
+    }
   }
-
-  previousStep() {
-    if (this.step > 1) this.step--;
-  }
-
 
   calculateHV() {
     this.testReport.hv = String(Number(this.testReport.hv_kv)* Number(this.testReport.job_rating));
@@ -212,17 +208,7 @@ export class StoreGenerateReportsv1Component {
 
     });
   }
-  
 
 
-
-
-  onSubmit(form: any) {
-    if (form.valid) {
-      console.log('Form Submitted:', this.testReport);
-    
-    } else {
-      console.log('Form is invalid');
-    }
-  }
 }
+
